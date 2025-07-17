@@ -1,0 +1,274 @@
+// Importa las variables, mixins y estilos base primero
+@import 'variables';
+@import 'mixins';
+@import 'base';
+
+// Importa los estilos de layout y componentes
+@import 'layout';
+@import 'components';
+
+
+// --- Estilos Específicos por Página ---
+
+// Estilos para index.html
+.hero-section {
+    padding: 4rem 0;
+    text-align: center;
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        color: $beige-oscuro;
+    }
+    p {
+        font-size: 1.25rem;
+        color: $texto-secundario;
+        margin-bottom: 2rem;
+    }
+    .img-fluid {
+        max-width: 85%;
+        height: auto;
+        margin-top: 2.5rem;
+        border-radius: $radio-borde;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
+        @include efecto-hover-imagen(); // Efecto hover también en esta imagen grande
+    }
+}
+
+.featured-products {
+    padding: $espaciado-secciones 0;
+    h2 {
+        text-align: center;
+        margin-bottom: 2.5rem;
+        font-size: 2.2rem;
+    }
+}
+
+.about-us-mini {
+    padding: $espaciado-secciones 0;
+    text-align: center;
+    p {
+        font-size: 1.1rem;
+        color: $texto-secundario;
+        margin-bottom: 1.5rem;
+    }
+    a {
+        font-weight: bold;
+    }
+}
+
+// Estilos para productos.html
+.product-grid {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    // Las clases de Bootstrap `row-cols-1`, `row-cols-md-3`, etc. manejan la disposición aquí.
+    // El tamaño de la imagen se define en _components.scss
+}
+
+.filter-section {
+    margin-bottom: 2.5rem;
+    h3 {
+        margin-bottom: 1.25rem;
+        color: $texto-principal;
+    }
+    .btn {
+        margin-right: 0.75rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+// Estilos para contacto.html
+.contact-form-section {
+    margin-bottom: 3rem;
+    h2 {
+        margin-bottom: 1.75rem;
+    }
+}
+
+.other-contact-methods {
+    h2 {
+        margin-bottom: 1.75rem;
+    }
+    .card-body {
+        padding: 1.5rem;
+        h5.card-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin-bottom: 0.75rem;
+        }
+        strong {
+            color: $beige-oscuro;
+            font-size: 1.1rem;
+        }
+        .text-muted {
+            font-size: 0.9rem;
+            color: $texto-secundario !important;
+        }
+    }
+}
+
+// Estilos para ayuda.html
+.faq-section {
+    margin-bottom: 3rem;
+}
+
+.need-more-help {
+    padding: 2rem 0;
+    h2 {
+        margin-bottom: 1.5rem;
+    }
+    p {
+        font-size: 1.1rem;
+        color: $texto-secundario;
+        margin-bottom: 2rem;
+    }
+}
+
+// Estilos para nosotros.html
+.about-us-content {
+    .row {
+        margin-bottom: 4rem; // Más espacio entre secciones
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    h2 {
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1.05rem;
+        color: $texto-secundario;
+        line-height: 1.7;
+    }
+    .img-fluid {
+        border-radius: $radio-borde;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
+        @include efecto-hover-imagen(); // También aquí, para las imágenes del equipo/visión
+    }
+}
+
+.values-section {
+    padding-top: 2rem;
+    h2 {
+        margin-bottom: 2.5rem;
+        font-size: 2.2rem;
+    }
+    .card {
+        .card-body {
+            h5.card-title {
+                font-size: 1.3rem;
+                margin-bottom: 0.75rem;
+            }
+            p.card-text {
+                font-size: 0.95rem;
+            }
+        }
+    }
+}
+
+// --- Media Queries para Responsive Design ---
+
+/* Extra Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+
+    .header .navbar-brand {
+        font-size: 1.5rem;
+        img.logo {
+            max-height: 40px;
+        }
+    }
+    .header .navbar-collapse .navbar-nav .nav-item {
+        margin-left: 0;
+        .nav-link {
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+    }
+    .hero-section {
+        padding: 2rem 0;
+        .img-fluid {
+            max-width: 95%;
+        }
+    }
+    .main-content {
+        padding: 1.5rem 0;
+    }
+    .footer {
+        padding: 1.5rem 0;
+    }
+    .card .card-img-top {
+        height: 200px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: $breakpoint-sm) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: $breakpoint-md) {
+    .container {
+        max-width: 720px;
+    }
+    .hero-section {
+        text-align: left;
+        display: flex;
+        flex-direction: column; // Asegurar que el texto y la imagen se apilan en móviles
+        align-items: flex-start;
+        .img-fluid {
+            order: 1; // Colocar la imagen primero en el orden visual en mobile
+            margin-bottom: 2rem;
+        }
+        h1, p, .btn {
+            order: 2; // El texto y el botón después
+        }
+        // Para pantallas más grandes, podemos usar flexbox para alinear
+        & > div { // Esto asume que el contenido de texto está directamente dentro de hero-section
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    .about-us-content .row {
+        align-items: center; // Alinear elementos en el centro para layouts de dos columnas
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: $breakpoint-lg) {
+    .container {
+        max-width: 960px;
+    }
+    .hero-section {
+        flex-direction: row; // Para desktop, volver a layout de fila si es necesario
+        justify-content: space-between;
+        align-items: center;
+        .hero-text {
+            flex: 1;
+            padding-right: 3rem;
+            text-align: left;
+        }
+        .img-fluid {
+            flex: 1;
+            order: initial; // Restablecer el orden
+            margin-top: 0;
+            max-width: 50%; // Ajustar tamaño para que quede bien junto al texto
+        }
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: $breakpoint-xl) {
+    .container {
+        max-width: 1140px;
+    }
+}

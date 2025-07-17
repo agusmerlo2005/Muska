@@ -1,0 +1,9 @@
+// Mixin para efecto hover en imágenes
+@mixin efecto-hover-imagen($escala: 1.05, $duracion: 0.3s) {
+    transition: transform $duracion ease-in-out, box-shadow $duracion ease-in-out;
+    &:hover {
+        transform: scale($escala);
+        // Opcional: una sombra sutil para realzar más el efecto
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+}

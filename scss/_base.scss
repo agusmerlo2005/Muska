@@ -1,0 +1,70 @@
+html {
+    box-sizing: border-box; // Facilita el cálculo de anchos y alturas
+    font-size: 16px; // Base para unidades rem
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: $fuente-principal;
+    color: $texto-principal;
+    background-color: $beige-claro; // Color de fondo principal
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; // Mejora la renderización de fuentes
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Estilos generales para texto
+h1, h2, h3, h4, h5, h6 {
+    font-family: $fuente-secundaria;
+    color: $beige-oscuro; // Los títulos destacarán en beige oscuro
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: $texto-principal;
+}
+
+a {
+    color: $enlace-color;
+    text-decoration: none;
+    &:hover {
+        color: $enlace-hover;
+        text-decoration: underline;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; // Elimina el espacio extra debajo de las imágenes
+}
+
+// Contenedor principal que centra el contenido
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $espaciado-interno;
+}
+
+// Utilidades de Bootstrap para fondos
+.bg-light-beige {
+    background-color: lighten($beige-claro, 3%) !important; // Un tono ligeramente más claro para la navbar
+}
+
+.bg-dark-beige {
+    background-color: $beige-oscuro !important;
+}

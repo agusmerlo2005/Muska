@@ -1,0 +1,105 @@
+.header {
+    background-color: $blanco;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba($beige-oscuro, 0.2); // Línea divisoria sutil
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05); // Sombra suave para elevación
+
+    .navbar {
+        padding: 0; // Bootstrap padding por defecto en navbar es mucho
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.75rem; // Tamaño de fuente del logo
+            color: $beige-oscuro;
+            
+            img.logo {
+                max-height: 50px; // Altura máxima del logo
+                margin-right: 0.75rem;
+            }
+            &:hover {
+                color: darken($beige-oscuro, 10%);
+            }
+        }
+
+        .navbar-toggler {
+            border-color: $beige-oscuro;
+            color: $beige-oscuro;
+            &:focus {
+                box-shadow: 0 0 0 0.25rem rgba($beige-oscuro, 0.25);
+            }
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23A39788' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            }
+        }
+
+        .navbar-collapse {
+            .navbar-nav {
+                .nav-item {
+                    margin-left: 1.5rem; // Espacio entre elementos del menú
+                    .nav-link {
+                        color: $texto-principal;
+                        padding: 0.75rem 0; // Más espacio vertical
+                        font-weight: 500; // Un poco más de peso para la legibilidad
+
+                        &.active, &:hover {
+                            color: $beige-oscuro;
+                            border-bottom: 2px solid $beige-oscuro; // Subrayado al pasar el mouse
+                            transform: translateY(-2px); // Pequeño efecto de elevación
+                            transition: all 0.2s ease-in-out;
+                        }
+                        &.active {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main-content {
+    padding: $espaciado-secciones 0; // Espaciado superior e inferior para el contenido principal
+    min-height: calc(100vh - 180px); // Ajusta según la altura de tu header/footer para que el main ocupe el resto
+    display: flex;
+    flex-direction: column;
+    align-items: center; // Centra el contenido si es más estrecho
+    justify-content: flex-start;
+}
+
+.footer {
+    background-color: $beige-oscuro; // El beige oscuro del footer
+    color: $blanco;
+    padding: 2rem 0;
+    text-align: center;
+
+    p {
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+        color: rgba($blanco, 0.8); // Texto ligeramente translúcido
+    }
+
+    .social-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+            display: inline-block;
+            margin: 0 0.75rem;
+            a {
+                display: inline-block;
+                img {
+                    max-height: 30px; // Tamaño de los íconos de redes
+                    opacity: 0.8;
+                    transition: opacity 0.2s ease-in-out;
+                    &:hover {
+                        opacity: 1;
+                        transform: scale(1.1); // Efecto sutil al pasar el mouse
+                    }
+                }
+            }
+        }
+    }
+}
