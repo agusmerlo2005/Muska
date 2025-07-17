@@ -13,12 +13,7 @@
 @import 'components';
 
 
-// ======================================================
-// MUSKA | Home & Deco - Archivo Principal SCSS
-// Importa todos los parciales y define estilos específicos por página
-// ======================================================
-
-// ... (imports y otras secciones) ...
+// --- Estilos Específicos por Página ---
 
 // Estilos para index.html
 .hero-section {
@@ -34,18 +29,18 @@
         color: $texto-secundario;
         margin-bottom: 2rem;
     }
-    .img-fluid {
-        max-width: 85%; // Limita el ancho máximo al 85% de su contenedor
-        height: auto;    // La altura se ajusta automáticamente para mantener la proporción
+    // Aseguramos que la imagen se adapte correctamente
+    img.img-fluid { // Aplicamos el estilo directamente a la etiqueta img con la clase img-fluid
+        max-width: 85%;
+        height: auto; // La altura se ajusta automáticamente para mantener la proporción
         display: block;
         margin: 2.5rem auto 0;
         border-radius: $radio-borde;
         box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
-        @include efecto-hover-imagen();
+        @include efecto-hover-imagen(); // <-- APLICA EL MIXIN AQUÍ
     }
 }
 
-// ... (resto del archivo) ...
 .featured-products {
     padding: $espaciado-secciones 0;
     h2 {
@@ -286,29 +281,3 @@
         max-width: 1140px;
     }
 }
-
-// ======================================================
-// MUSKA | Home & Deco - Archivo Principal SCSS
-// Importa todos los parciales y define estilos específicos por página
-// ======================================================
-
-// ... (todos tus @import y estilos de página existentes) ...
-
-// --- SOLUCIÓN PARA EL MENÚ DESPLEGABLE EN MÓVIL ---
-// Asegura que el cuerpo y el HTML no impidan el scroll
-html, body {
-    overflow-x: hidden; // Previene scroll horizontal si no lo quieres
-    overflow-y: auto;   // Permite scroll vertical
-}
-
-// Para el menú de Bootstrap, asegurar que su contenedor permite el scroll si es muy largo
-.navbar-collapse {
-    @media (max-width: ($breakpoint-md - 1px)) { // Aplica solo en pantallas más pequeñas
-        max-height: calc(100vh - 60px); // Ajusta esta altura. 60px es una ESTIMACIÓN
-                                        // de la altura de tu navbar fijo.
-                                        // Si tu navbar es más alto/bajo, ajústalo.
-        overflow-y: auto; // Habilita el desplazamiento vertical si el contenido excede el max-height
-        -webkit-overflow-scrolling: touch; // Mejora el desplazamiento en iOS
-    }
-}
-

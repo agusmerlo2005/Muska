@@ -56,33 +56,37 @@
     }
 }
 
-// ======================================================
-// MUSKA | Home & Deco - Archivo de Componentes SCSS
-// Define estilos para elementos reutilizables (botones, tarjetas, formularios)
-// ======================================================
-
-// ... (contenido anterior de botones) ...
-
 // Estilos para tarjetas generales (usadas en destacados, valores, etc.)
 .card {
     background-color: $blanco;
     border: 1px solid rgba($texto-principal, 0.1);
     border-radius: $radio-borde;
-    overflow: hidden;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; // <-- Mueve el overflow hidden aquí para toda la tarjeta
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08); // Sombra para profundidad
+    transition: transform 0.3s ease, box-shadow 0.3s ease; // Transición para hover general
 
     &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        transform: translateY(-5px); // Pequeña elevación al pasar el mouse
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); // Sombra más pronunciada
     }
 
     .card-img-top {
+        // Hacemos este div un contenedor flexible para la imagen
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
-        height: 200px; // Altura fija deseada para uniformidad
-        object-fit: cover; // Crucial: la imagen cubre el espacio, recortando si es necesario
-        object-position: center; // Centra la imagen dentro del contenedor si se recorta
-        @include efecto-hover-imagen();
+        height: 200px; // Altura fija para uniformidad en tarjetas de producto
+        // overflow: hidden; // <-- REMOVED from here
+        @include efecto-hover-imagen(); // <-- APPLIED MIXIN HERE (to the container)
+
+        img {
+            width: 100%; // La imagen siempre ocupa el 100% del ancho del contenedor .card-img-top
+            height: 100%; // La imagen siempre ocupa el 100% de la altura del contenedor .card-img-top
+            object-fit: cover; // Asegura que la imagen cubra el espacio sin distorsionarse
+            object-position: center; // Centra la imagen dentro del contenedor si se recorta
+            // @include efecto-hover-imagen(); // <-- REMOVED from here (if it was)
+        }
     }
     .card-body {
         padding: $espaciado-interno-md;
@@ -97,7 +101,7 @@
         }
         .price {
             font-weight: bold;
-            color: $beige-oscuro;
+            color: $beige-oscuro; // Precio con el color original para destacar
             display: block;
             margin-bottom: 0.5rem;
             font-size: 1.15rem;
@@ -105,11 +109,11 @@
     }
 }
 
-// Estilos específicos para la tarjeta de producto (en productos.html)
+// Estilos específicos para la tarjeta de producto (puede sobrescribir la genérica)
 .product-card {
     text-align: center;
     .card-img-top {
-        height: 280px; // Altura ligeramente mayor para productos en la página de catálogo
+        height: 280px; // Altura ligeramente mayor para productos destacados (ajusta si es necesario)
     }
     .card-body {
         .price {
@@ -117,7 +121,6 @@
         }
     }
 }
-
 
 // Formulario de contacto
 .form-label {
@@ -134,6 +137,49 @@
         box-shadow: 0 0 0 0.25rem rgba($beige-oscuro, 0.25);
     }
 }
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+// Acordeón (FAQs)
+.accordion-item {
+    border: 1px solid rgba($texto-principal, 0.1);
+    border-radius: $radio-borde;
+    margin-bottom: $espaciado-base;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    .accordion-header {
+        .accordion-button {
+            background-color: $blanco;
+            color: $texto-principal;
+            font-weight: bold;
+            padding: $espaciado-base 1.25rem;
+            border-radius: $radio-borde;
+            &:not(.collapsed) {
+                color: $beige-oscuro; // Texto del acordeón abierto en beige oscuro
+                background-color: lighten($beige-claro, 2%);
+                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+            }
+            &:focus {
+                border-color: $beige-oscuro; // Borde del acordeón enfocado en beige oscuro
+                box-shadow: 0 0 0 0.25rem rgba($beige-oscuro, 0.25);
+            }
+        }
+    }
+    .accordion-collapse {
+        .accordion-body {
+            padding: $espaciado-base 1.25rem;
+            background-color: $beige-claro;
+            border-top: 1px solid rgba($texto-principal, 0.05);
+            font-size: 0.95rem;
+            color: $texto-secundario;
+        }
+    }
+}
+
 .invalid-feedback {
     color: #dc3545;
     font-size: 0.875rem;
