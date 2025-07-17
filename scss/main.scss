@@ -1,14 +1,24 @@
-// Importa las variables, mixins y estilos base primero
+// ======================================================
+// MUSKA | Home & Deco - Archivo Principal SCSS
+// Importa todos los parciales y define estilos específicos por página
+// ======================================================
+
+// 1. Importa las variables, mixins y estilos base primero
 @import 'variables';
 @import 'mixins';
 @import 'base';
 
-// Importa los estilos de layout y componentes
+// 2. Importa los estilos de layout y componentes
 @import 'layout';
 @import 'components';
 
 
-// --- Estilos Específicos por Página ---
+// ======================================================
+// MUSKA | Home & Deco - Archivo Principal SCSS
+// Importa todos los parciales y define estilos específicos por página
+// ======================================================
+
+// ... (imports y otras secciones) ...
 
 // Estilos para index.html
 .hero-section {
@@ -25,21 +35,24 @@
         margin-bottom: 2rem;
     }
     .img-fluid {
-        max-width: 85%;
-        height: auto;
-        margin-top: 2.5rem;
+        max-width: 85%; // Limita el ancho máximo al 85% de su contenedor
+        height: auto;    // La altura se ajusta automáticamente para mantener la proporción
+        display: block;
+        margin: 2.5rem auto 0;
         border-radius: $radio-borde;
         box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
-        @include efecto-hover-imagen(); // Efecto hover también en esta imagen grande
+        @include efecto-hover-imagen();
     }
 }
 
+// ... (resto del archivo) ...
 .featured-products {
     padding: $espaciado-secciones 0;
     h2 {
         text-align: center;
         margin-bottom: 2.5rem;
         font-size: 2.2rem;
+        color: $beige-oscuro; // Título de destacados en beige oscuro
     }
 }
 
@@ -58,10 +71,8 @@
 
 // Estilos para productos.html
 .product-grid {
-    padding-top: 1rem;
-    padding-bottom: 2rem;
-    // Las clases de Bootstrap `row-cols-1`, `row-cols-md-3`, etc. manejan la disposición aquí.
-    // El tamaño de la imagen se define en _components.scss
+    padding-top: $espaciado-base;
+    padding-bottom: $espaciado-interno-lg;
 }
 
 .filter-section {
@@ -74,7 +85,7 @@
         margin-right: 0.75rem;
         margin-bottom: 0.75rem;
         font-size: 0.9rem;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem $espaciado-base;
     }
 }
 
@@ -83,24 +94,27 @@
     margin-bottom: 3rem;
     h2 {
         margin-bottom: 1.75rem;
+        color: $beige-oscuro; // Título de sección de contacto en beige oscuro
     }
 }
 
 .other-contact-methods {
     h2 {
         margin-bottom: 1.75rem;
+        color: $beige-oscuro; // Título de métodos de contacto en beige oscuro
     }
     .card-body {
         padding: 1.5rem;
         h5.card-title {
             font-size: 1.4rem;
-            margin-bottom: 1rem;
+            margin-bottom: $espaciado-base;
+            color: $beige-oscuro; // Títulos de tarjetas en beige oscuro
         }
         p {
             margin-bottom: 0.75rem;
         }
         strong {
-            color: $beige-oscuro;
+            color: $beige-oscuro; // Destacados en beige oscuro
             font-size: 1.1rem;
         }
         .text-muted {
@@ -116,21 +130,22 @@
 }
 
 .need-more-help {
-    padding: 2rem 0;
+    padding: $espaciado-interno-lg 0;
     h2 {
         margin-bottom: 1.5rem;
+        color: $beige-oscuro; // Título de ayuda en beige oscuro
     }
     p {
         font-size: 1.1rem;
         color: $texto-secundario;
-        margin-bottom: 2rem;
+        margin-bottom: $espaciado-interno-lg;
     }
 }
 
 // Estilos para nosotros.html
 .about-us-content {
     .row {
-        margin-bottom: 4rem; // Más espacio entre secciones
+        margin-bottom: 4rem;
         &:last-child {
             margin-bottom: 0;
         }
@@ -138,6 +153,7 @@
     h2 {
         margin-bottom: 1.5rem;
         font-size: 2rem;
+        color: $beige-oscuro; // Títulos de la sección Nosotros en beige oscuro
     }
     p {
         font-size: 1.05rem;
@@ -147,21 +163,23 @@
     .img-fluid {
         border-radius: $radio-borde;
         box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
-        @include efecto-hover-imagen(); // También aquí, para las imágenes del equipo/visión
+        @include efecto-hover-imagen();
     }
 }
 
 .values-section {
-    padding-top: 2rem;
+    padding-top: $espaciado-interno-lg;
     h2 {
         margin-bottom: 2.5rem;
         font-size: 2.2rem;
+        color: $beige-oscuro; // Título de valores en beige oscuro
     }
     .card {
         .card-body {
             h5.card-title {
                 font-size: 1.3rem;
                 margin-bottom: 0.75rem;
+                color: $beige-oscuro; // Títulos de valores en beige oscuro
             }
             p.card-text {
                 font-size: 0.95rem;
@@ -173,7 +191,7 @@
 // --- Media Queries para Responsive Design ---
 
 /* Extra Small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
+@media (max-width: ($breakpoint-sm - 1px)) {
     h1 { font-size: 2rem; }
     h2 { font-size: 1.75rem; }
     h3 { font-size: 1.5rem; }
@@ -187,14 +205,15 @@
     .header .navbar-collapse .navbar-nav .nav-item {
         margin-left: 0;
         .nav-link {
-            padding: 0.5rem 1rem;
+            padding: 0.5rem $espaciado-base;
             text-align: center;
         }
     }
     .hero-section {
-        padding: 2rem 0;
+        padding: $espaciado-interno-lg 0;
         .img-fluid {
             max-width: 95%;
+            margin-top: $espaciado-interno-md;
         }
     }
     .main-content {
@@ -223,23 +242,18 @@
     .hero-section {
         text-align: left;
         display: flex;
-        flex-direction: column; // Asegurar que el texto y la imagen se apilan en móviles
+        flex-direction: column;
         align-items: flex-start;
         .img-fluid {
-            order: 1; // Colocar la imagen primero en el orden visual en mobile
-            margin-bottom: 2rem;
+            order: 1;
+            margin-bottom: $espaciado-interno-lg;
         }
         h1, p, .btn {
-            order: 2; // El texto y el botón después
-        }
-        // Para pantallas más grandes, podemos usar flexbox para alinear
-        & > div { // Esto asume que el contenido de texto está directamente dentro de hero-section
-            display: flex;
-            flex-direction: column;
+            order: 2;
         }
     }
     .about-us-content .row {
-        align-items: center; // Alinear elementos en el centro para layouts de dos columnas
+        align-items: center;
     }
 }
 
@@ -249,7 +263,7 @@
         max-width: 960px;
     }
     .hero-section {
-        flex-direction: row; // Para desktop, volver a layout de fila si es necesario
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
         .hero-text {
@@ -259,9 +273,9 @@
         }
         .img-fluid {
             flex: 1;
-            order: initial; // Restablecer el orden
+            order: initial;
             margin-top: 0;
-            max-width: 50%; // Ajustar tamaño para que quede bien junto al texto
+            max-width: 50%;
         }
     }
 }
@@ -272,3 +286,29 @@
         max-width: 1140px;
     }
 }
+
+// ======================================================
+// MUSKA | Home & Deco - Archivo Principal SCSS
+// Importa todos los parciales y define estilos específicos por página
+// ======================================================
+
+// ... (todos tus @import y estilos de página existentes) ...
+
+// --- SOLUCIÓN PARA EL MENÚ DESPLEGABLE EN MÓVIL ---
+// Asegura que el cuerpo y el HTML no impidan el scroll
+html, body {
+    overflow-x: hidden; // Previene scroll horizontal si no lo quieres
+    overflow-y: auto;   // Permite scroll vertical
+}
+
+// Para el menú de Bootstrap, asegurar que su contenedor permite el scroll si es muy largo
+.navbar-collapse {
+    @media (max-width: ($breakpoint-md - 1px)) { // Aplica solo en pantallas más pequeñas
+        max-height: calc(100vh - 60px); // Ajusta esta altura. 60px es una ESTIMACIÓN
+                                        // de la altura de tu navbar fijo.
+                                        // Si tu navbar es más alto/bajo, ajústalo.
+        overflow-y: auto; // Habilita el desplazamiento vertical si el contenido excede el max-height
+        -webkit-overflow-scrolling: touch; // Mejora el desplazamiento en iOS
+    }
+}
+

@@ -1,3 +1,8 @@
+// ======================================================
+// MUSKA | Home & Deco - Archivo de Componentes SCSS
+// Define estilos para elementos reutilizables (botones, tarjetas, formularios)
+// ======================================================
+
 // Estilos para botones
 .btn {
     display: inline-block;
@@ -7,9 +12,9 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-    
+
     &.btn-primary {
-        background-color: $beige-oscuro;
+        background-color: $beige-oscuro; // Botón primario en beige oscuro
         color: $blanco;
         border: none;
         &:hover {
@@ -27,7 +32,7 @@
         }
     }
     &.btn-outline-secondary {
-        color: $beige-oscuro;
+        color: $beige-oscuro; // Botón outline en beige oscuro
         border: 1px solid $beige-oscuro;
         background-color: transparent;
         &:hover {
@@ -38,41 +43,49 @@
     }
     &.btn-add-to-cart {
         background-color: $beige-claro;
-        color: $beige-oscuro;
+        color: $beige-oscuro; // Botón de añadir al carrito en beige oscuro
         border: 1px solid $beige-oscuro;
         padding: 0.6rem 1.2rem;
         font-size: 0.95rem;
-        margin-top: 1rem; // Espacio superior
+        margin-top: $espaciado-base;
         &:hover {
             background-color: $beige-oscuro;
             color: $blanco;
-            transform: scale(1.02); // Ligeramente más grande al pasar el mouse
+            transform: scale(1.02);
         }
     }
 }
 
+// ======================================================
+// MUSKA | Home & Deco - Archivo de Componentes SCSS
+// Define estilos para elementos reutilizables (botones, tarjetas, formularios)
+// ======================================================
+
+// ... (contenido anterior de botones) ...
+
 // Estilos para tarjetas generales (usadas en destacados, valores, etc.)
 .card {
     background-color: $blanco;
-    border: 1px solid rgba($texto-principal, 0.1); // Borde suave
+    border: 1px solid rgba($texto-principal, 0.1);
     border-radius: $radio-borde;
-    overflow: hidden; // Asegura que las esquinas redondeadas se vean bien con imágenes
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08); // Sombra para profundidad
-    transition: transform 0.3s ease, box-shadow 0.3s ease; // Transición para hover general
-    
+    overflow: hidden;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
     &:hover {
-        transform: translateY(-5px); // Pequeña elevación al pasar el mouse
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); // Sombra más pronunciada
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     }
 
     .card-img-top {
         width: 100%;
-        height: 200px; // Altura fija para uniformidad en tarjetas de producto
-        object-fit: cover; // Asegura que la imagen cubra el espacio sin distorsionarse
-        @include efecto-hover-imagen(); // Aplica el mixin de agrandamiento
+        height: 200px; // Altura fija deseada para uniformidad
+        object-fit: cover; // Crucial: la imagen cubre el espacio, recortando si es necesario
+        object-position: center; // Centra la imagen dentro del contenedor si se recorta
+        @include efecto-hover-imagen();
     }
     .card-body {
-        padding: $espaciado-interno;
+        padding: $espaciado-interno-md;
         .card-title {
             color: $texto-principal;
             margin-bottom: 0.75rem;
@@ -92,11 +105,11 @@
     }
 }
 
-// Estilos específicos para la tarjeta de producto (puede sobrescribir la genérica)
+// Estilos específicos para la tarjeta de producto (en productos.html)
 .product-card {
     text-align: center;
     .card-img-top {
-        height: 280px; // Altura ligeramente mayor para productos destacados
+        height: 280px; // Altura ligeramente mayor para productos en la página de catálogo
     }
     .card-body {
         .price {
@@ -104,6 +117,7 @@
         }
     }
 }
+
 
 // Formulario de contacto
 .form-label {
@@ -114,14 +128,14 @@
 .form-control {
     border: 1px solid rgba($beige-oscuro, 0.5);
     border-radius: $radio-borde;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem $espaciado-base;
     &:focus {
-        border-color: $beige-oscuro;
+        border-color: $beige-oscuro; // Borde del input enfocado en beige oscuro
         box-shadow: 0 0 0 0.25rem rgba($beige-oscuro, 0.25);
     }
 }
 .invalid-feedback {
-    color: #dc3545; // Rojo estándar para errores
+    color: #dc3545;
     font-size: 0.875rem;
     margin-top: 0.25rem;
 }
@@ -130,7 +144,7 @@
 .accordion-item {
     border: 1px solid rgba($texto-principal, 0.1);
     border-radius: $radio-borde;
-    margin-bottom: 1rem;
+    margin-bottom: $espaciado-base;
     &:last-child {
         margin-bottom: 0;
     }
@@ -139,22 +153,22 @@
             background-color: $blanco;
             color: $texto-principal;
             font-weight: bold;
-            padding: 1rem 1.25rem;
+            padding: $espaciado-base 1.25rem;
             border-radius: $radio-borde;
             &:not(.collapsed) {
-                color: $beige-oscuro;
-                background-color: lighten($beige-claro, 2%); // Un beige muy suave
+                color: $beige-oscuro; // Texto del acordeón abierto en beige oscuro
+                background-color: lighten($beige-claro, 2%);
                 box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
             }
             &:focus {
-                border-color: $beige-oscuro;
+                border-color: $beige-oscuro; // Borde del acordeón enfocado en beige oscuro
                 box-shadow: 0 0 0 0.25rem rgba($beige-oscuro, 0.25);
             }
         }
     }
     .accordion-collapse {
         .accordion-body {
-            padding: 1rem 1.25rem;
+            padding: $espaciado-base 1.25rem;
             background-color: $beige-claro;
             border-top: 1px solid rgba($texto-principal, 0.05);
             font-size: 0.95rem;

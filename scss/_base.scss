@@ -1,5 +1,10 @@
+// ======================================================
+// MUSKA | Home & Deco - Archivo de Estilos Base SCSS
+// Define estilos generales para el body, tipografía y elementos básicos
+// ======================================================
+
 html {
-    box-sizing: border-box; // Facilita el cálculo de anchos y alturas
+    box-sizing: border-box;
     font-size: 16px; // Base para unidades rem
 }
 
@@ -10,19 +15,19 @@ html {
 body {
     font-family: $fuente-principal;
     color: $texto-principal;
-    background-color: $beige-claro; // Color de fondo principal
+    background-color: $beige-claro;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased; // Mejora la renderización de fuentes
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-// Estilos generales para texto
+// Estilos generales para texto y encabezados
 h1, h2, h3, h4, h5, h6 {
     font-family: $fuente-secundaria;
-    color: $beige-oscuro; // Los títulos destacarán en beige oscuro
-    margin-bottom: 1rem;
+    color: $beige-oscuro; // Títulos en el color original (beige oscuro)
+    margin-bottom: $espaciado-base;
     line-height: 1.2;
 }
 
@@ -34,7 +39,7 @@ h5 { font-size: 1.25rem; }
 h6 { font-size: 1rem; }
 
 p {
-    margin-bottom: 1rem;
+    margin-bottom: $espaciado-base;
     color: $texto-principal;
 }
 
@@ -47,22 +52,27 @@ a {
     }
 }
 
+
+// Define estilos generales para el body, tipografía y elementos básicos
+
 img {
-    max-width: 100%;
-    height: auto;
-    display: block; // Elimina el espacio extra debajo de las imágenes
+    max-width: 100%; // Asegura que la imagen no sobrepase el ancho de su contenedor
+    height: auto;    // Mantiene la proporción de la imagen al cambiar el ancho
+    display: block;  // Elimina el espacio extra debajo de las imágenes (comportamiento de inline)
 }
+
+
 
 // Contenedor principal que centra el contenido
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 $espaciado-interno;
+    padding: 0 $espaciado-interno-md;
 }
 
-// Utilidades de Bootstrap para fondos
+// Utilidades de Bootstrap para fondos (si se utilizan)
 .bg-light-beige {
-    background-color: lighten($beige-claro, 3%) !important; // Un tono ligeramente más claro para la navbar
+    background-color: lighten($beige-claro, 3%) !important;
 }
 
 .bg-dark-beige {
