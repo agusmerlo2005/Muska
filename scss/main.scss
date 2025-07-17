@@ -23,21 +23,33 @@
         font-size: 3rem;
         margin-bottom: 1.5rem;
         color: $beige-oscuro;
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            font-size: 2.2rem; // Ajuste para móviles muy pequeños
+        }
     }
     p {
         font-size: 1.25rem;
         color: $texto-secundario;
         margin-bottom: 2rem;
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            font-size: 1rem; // Ajuste para móviles muy pequeños
+        }
     }
-    // Aseguramos que la imagen se adapte correctamente
-    img.img-fluid { // Aplicamos el estilo directamente a la etiqueta img con la clase img-fluid
+    img.img-fluid {
         max-width: 85%;
-        height: auto; // La altura se ajusta automáticamente para mantener la proporción
+        height: auto;
         display: block;
         margin: 2.5rem auto 0;
         border-radius: $radio-borde;
         box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
-        @include efecto-hover-imagen(); // <-- APLICA EL MIXIN AQUÍ
+        @include efecto-hover-imagen();
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            max-width: 95%; // Un poco más de ancho en móviles pequeños
+            margin-top: $espaciado-interno-md;
+        }
     }
 }
 
@@ -47,7 +59,12 @@
         text-align: center;
         margin-bottom: 2.5rem;
         font-size: 2.2rem;
-        color: $beige-oscuro; // Título de destacados en beige oscuro
+        color: $beige-oscuro;
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
     }
 }
 
@@ -58,6 +75,10 @@
         font-size: 1.1rem;
         color: $texto-secundario;
         margin-bottom: 1.5rem;
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            font-size: 0.95rem;
+        }
     }
     a {
         font-weight: bold;
@@ -68,6 +89,11 @@
 .product-grid {
     padding-top: $espaciado-base;
     padding-bottom: $espaciado-interno-lg;
+
+    @media (max-width: ($breakpoint-sm - 1px)) {
+        padding-top: 0.5rem;
+        padding-bottom: $espaciado-base;
+    }
 }
 
 .filter-section {
@@ -75,12 +101,23 @@
     h3 {
         margin-bottom: 1.25rem;
         color: $texto-principal;
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
     }
     .btn {
         margin-right: 0.75rem;
         margin-bottom: 0.75rem;
         font-size: 0.9rem;
         padding: 0.5rem $espaciado-base;
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            width: 100%; // Botones de filtro ocupan todo el ancho en móviles
+            margin-right: 0;
+            margin-bottom: 0.5rem;
+        }
     }
 }
 
@@ -89,27 +126,41 @@
     margin-bottom: 3rem;
     h2 {
         margin-bottom: 1.75rem;
-        color: $beige-oscuro; // Título de sección de contacto en beige oscuro
+        color: $beige-oscuro;
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            font-size: 1.8rem;
+            margin-bottom: 1.25rem;
+        }
     }
 }
 
 .other-contact-methods {
     h2 {
         margin-bottom: 1.75rem;
-        color: $beige-oscuro; // Título de métodos de contacto en beige oscuro
+        color: $beige-oscuro;
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            font-size: 1.8rem;
+            margin-bottom: 1.25rem;
+        }
     }
     .card-body {
         padding: 1.5rem;
         h5.card-title {
             font-size: 1.4rem;
             margin-bottom: $espaciado-base;
-            color: $beige-oscuro; // Títulos de tarjetas en beige oscuro
+            color: $beige-oscuro;
+
+            @media (max-width: ($breakpoint-sm - 1px)) {
+                font-size: 1.2rem;
+            }
         }
         p {
             margin-bottom: 0.75rem;
         }
         strong {
-            color: $beige-oscuro; // Destacados en beige oscuro
+            color: $beige-oscuro;
             font-size: 1.1rem;
         }
         .text-muted {
@@ -122,18 +173,32 @@
 // Estilos para ayuda.html
 .faq-section {
     margin-bottom: 3rem;
+
+    @media (max-width: ($breakpoint-sm - 1px)) {
+        margin-bottom: 2rem;
+    }
 }
 
 .need-more-help {
     padding: $espaciado-interno-lg 0;
     h2 {
         margin-bottom: 1.5rem;
-        color: $beige-oscuro; // Título de ayuda en beige oscuro
+        color: $beige-oscuro;
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
     }
     p {
         font-size: 1.1rem;
         color: $texto-secundario;
         margin-bottom: $espaciado-interno-lg;
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            font-size: 0.95rem;
+            margin-bottom: $espaciado-base;
+        }
     }
 }
 
@@ -144,16 +209,29 @@
         &:last-child {
             margin-bottom: 0;
         }
+
+        @media (max-width: ($breakpoint-md - 1px)) {
+            margin-bottom: 2.5rem; // Menos margen entre filas en móvil
+        }
     }
     h2 {
         margin-bottom: 1.5rem;
         font-size: 2rem;
-        color: $beige-oscuro; // Títulos de la sección Nosotros en beige oscuro
+        color: $beige-oscuro;
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+        }
     }
     p {
         font-size: 1.05rem;
         color: $texto-secundario;
         line-height: 1.7;
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            font-size: 0.9rem;
+        }
     }
     .img-fluid {
         border-radius: $radio-borde;
@@ -167,17 +245,34 @@
     h2 {
         margin-bottom: 2.5rem;
         font-size: 2.2rem;
-        color: $beige-oscuro; // Título de valores en beige oscuro
+        color: $beige-oscuro;
+
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
     }
     .card {
+        margin-bottom: 1.5rem; // Espacio entre tarjetas de valores en móvil
+        @media (max-width: ($breakpoint-md - 1px)) {
+            margin-bottom: $espaciado-base; // Menos espacio en móvil
+        }
         .card-body {
             h5.card-title {
                 font-size: 1.3rem;
                 margin-bottom: 0.75rem;
-                color: $beige-oscuro; // Títulos de valores en beige oscuro
+                color: $beige-oscuro;
+
+                @media (max-width: ($breakpoint-sm - 1px)) {
+                    font-size: 1.15rem;
+                }
             }
             p.card-text {
                 font-size: 0.95rem;
+
+                @media (max-width: ($breakpoint-sm - 1px)) {
+                    font-size: 0.85rem;
+                }
             }
         }
     }
@@ -187,39 +282,8 @@
 
 /* Extra Small devices (portrait phones, less than 576px) */
 @media (max-width: ($breakpoint-sm - 1px)) {
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.75rem; }
-    h3 { font-size: 1.5rem; }
-
-    .header .navbar-brand {
-        font-size: 1.5rem;
-        img.logo {
-            max-height: 40px;
-        }
-    }
-    .header .navbar-collapse .navbar-nav .nav-item {
-        margin-left: 0;
-        .nav-link {
-            padding: 0.5rem $espaciado-base;
-            text-align: center;
-        }
-    }
-    .hero-section {
-        padding: $espaciado-interno-lg 0;
-        .img-fluid {
-            max-width: 95%;
-            margin-top: $espaciado-interno-md;
-        }
-    }
-    .main-content {
-        padding: 1.5rem 0;
-    }
-    .footer {
-        padding: 1.5rem 0;
-    }
-    .card .card-img-top {
-        height: 200px;
-    }
+    // Estos ya fueron ajustados en los bloques específicos o en layout.
+    // Aquí puedes añadir ajustes globales si es necesario.
 }
 
 /* Small devices (landscape phones, 576px and up) */

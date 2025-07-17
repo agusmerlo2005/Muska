@@ -37,19 +37,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Script para la validación del formulario de Contacto ---
     // Este script se mantiene en el HTML del contacto.html para su correcta ejecución
     // ya que interactúa directamente con el DOM y las clases de Bootstrap.
-    // Sin embargo, si quisieras externalizarlo, lo harías aquí.
-    // (function () {
-    //     'use strict'
-    //     var forms = document.querySelectorAll('.needs-validation')
-    //     Array.prototype.slice.call(forms)
-    //         .forEach(function (form) {
-    //             form.addEventListener('submit', function (event) {
-    //                 if (!form.checkValidity()) {
-    //                     event.preventDefault()
-    //                     event.stopPropagation()
-    //                 }
-    //                 form.classList.add('was-validated')
-    //             }, false)
-    //         })
-    // })()
+    
 });

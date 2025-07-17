@@ -14,7 +14,7 @@
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 
     &.btn-primary {
-        background-color: $beige-oscuro; // Botón primario en beige oscuro
+        background-color: $beige-oscuro;
         color: $blanco;
         border: none;
         &:hover {
@@ -32,7 +32,7 @@
         }
     }
     &.btn-outline-secondary {
-        color: $beige-oscuro; // Botón outline en beige oscuro
+        color: $beige-oscuro;
         border: 1px solid $beige-oscuro;
         background-color: transparent;
         &:hover {
@@ -43,7 +43,7 @@
     }
     &.btn-add-to-cart {
         background-color: $beige-claro;
-        color: $beige-oscuro; // Botón de añadir al carrito en beige oscuro
+        color: $beige-oscuro;
         border: 1px solid $beige-oscuro;
         padding: 0.6rem 1.2rem;
         font-size: 0.95rem;
@@ -61,31 +61,28 @@
     background-color: $blanco;
     border: 1px solid rgba($texto-principal, 0.1);
     border-radius: $radio-borde;
-    overflow: hidden; // <-- Mueve el overflow hidden aquí para toda la tarjeta
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08); // Sombra para profundidad
-    transition: transform 0.3s ease, box-shadow 0.3s ease; // Transición para hover general
+    overflow: hidden;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
-        transform: translateY(-5px); // Pequeña elevación al pasar el mouse
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); // Sombra más pronunciada
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     }
 
     .card-img-top {
-        // Hacemos este div un contenedor flexible para la imagen
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
-        height: 200px; // Altura fija para uniformidad en tarjetas de producto
-        // overflow: hidden; // <-- REMOVED from here
-        @include efecto-hover-imagen(); // <-- APPLIED MIXIN HERE (to the container)
+        height: 200px; // Altura fija para uniformidad
+        @include efecto-hover-imagen();
 
         img {
-            width: 100%; // La imagen siempre ocupa el 100% del ancho del contenedor .card-img-top
-            height: 100%; // La imagen siempre ocupa el 100% de la altura del contenedor .card-img-top
-            object-fit: cover; // Asegura que la imagen cubra el espacio sin distorsionarse
-            object-position: center; // Centra la imagen dentro del contenedor si se recorta
-            // @include efecto-hover-imagen(); // <-- REMOVED from here (if it was)
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
     }
     .card-body {
@@ -101,7 +98,7 @@
         }
         .price {
             font-weight: bold;
-            color: $beige-oscuro; // Precio con el color original para destacar
+            color: $beige-oscuro;
             display: block;
             margin-bottom: 0.5rem;
             font-size: 1.15rem;
@@ -113,7 +110,10 @@
 .product-card {
     text-align: center;
     .card-img-top {
-        height: 280px; // Altura ligeramente mayor para productos destacados (ajusta si es necesario)
+        height: 280px; // Altura ligeramente mayor para productos en la página de catálogo
+        @media (max-width: ($breakpoint-sm - 1px)) {
+            height: 220px; // Ajuste para móviles muy pequeños
+        }
     }
     .card-body {
         .price {
@@ -133,7 +133,7 @@
     border-radius: $radio-borde;
     padding: 0.75rem $espaciado-base;
     &:focus {
-        border-color: $beige-oscuro; // Borde del input enfocado en beige oscuro
+        border-color: $beige-oscuro;
         box-shadow: 0 0 0 0.25rem rgba($beige-oscuro, 0.25);
     }
 }
@@ -159,55 +159,12 @@
             padding: $espaciado-base 1.25rem;
             border-radius: $radio-borde;
             &:not(.collapsed) {
-                color: $beige-oscuro; // Texto del acordeón abierto en beige oscuro
+                color: $beige-oscuro;
                 background-color: lighten($beige-claro, 2%);
                 box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
             }
             &:focus {
-                border-color: $beige-oscuro; // Borde del acordeón enfocado en beige oscuro
-                box-shadow: 0 0 0 0.25rem rgba($beige-oscuro, 0.25);
-            }
-        }
-    }
-    .accordion-collapse {
-        .accordion-body {
-            padding: $espaciado-base 1.25rem;
-            background-color: $beige-claro;
-            border-top: 1px solid rgba($texto-principal, 0.05);
-            font-size: 0.95rem;
-            color: $texto-secundario;
-        }
-    }
-}
-
-.invalid-feedback {
-    color: #dc3545;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-}
-
-// Acordeón (FAQs)
-.accordion-item {
-    border: 1px solid rgba($texto-principal, 0.1);
-    border-radius: $radio-borde;
-    margin-bottom: $espaciado-base;
-    &:last-child {
-        margin-bottom: 0;
-    }
-    .accordion-header {
-        .accordion-button {
-            background-color: $blanco;
-            color: $texto-principal;
-            font-weight: bold;
-            padding: $espaciado-base 1.25rem;
-            border-radius: $radio-borde;
-            &:not(.collapsed) {
-                color: $beige-oscuro; // Texto del acordeón abierto en beige oscuro
-                background-color: lighten($beige-claro, 2%);
-                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-            }
-            &:focus {
-                border-color: $beige-oscuro; // Borde del acordeón enfocado en beige oscuro
+                border-color: $beige-oscuro;
                 box-shadow: 0 0 0 0.25rem rgba($beige-oscuro, 0.25);
             }
         }

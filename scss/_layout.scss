@@ -17,7 +17,7 @@
             align-items: center;
             font-weight: bold;
             font-size: 1.75rem;
-            color: $beige-oscuro; // Logo en beige oscuro
+            color: $beige-oscuro;
             img.logo {
                 max-height: 50px;
                 margin-right: 0.75rem;
@@ -25,34 +25,40 @@
             &:hover {
                 color: darken($beige-oscuro, 10%);
             }
+
+            @media (max-width: ($breakpoint-sm - 1px)) {
+                font-size: 1.5rem;
+                img.logo {
+                    max-height: 40px;
+                }
+            }
         }
 
         .navbar-toggler {
-            border-color: $beige-oscuro; // Borde del toggler en beige oscuro
+            border-color: $beige-oscuro;
             color: $beige-oscuro;
             &:focus {
                 box-shadow: 0 0 0 0.25rem rgba($beige-oscuro, 0.25);
             }
             .navbar-toggler-icon {
-                // Actualiza el SVG con el color beige oscuro
                 background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23A39788' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
             }
         }
 
         .navbar-collapse {
-            // Estilos para el menú desplegado en pantallas pequeñas
             @media (max-width: ($breakpoint-md - 1px)) {
-                position: absolute; // O 'fixed' si quieres que se quede fijo al scroll
-                width: 100%;
-                top: 100%; // Posiciona el menú justo debajo del navbar
+                position: fixed;
+                top: 0;
                 left: 0;
-                background-color: $blanco; // Color de fondo del menú desplegado
-                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); // Sombra sutil
-                max-height: calc(100vh - 60px); // Altura máxima que ocupa el 100% del viewport
-                                               // menos la altura estimada de tu navbar (ej. 60px)
-                overflow-y: auto; // ¡Permite el desplazamiento vertical si el contenido excede el max-height!
-                -webkit-overflow-scrolling: touch; // Mejora el desplazamiento en iOS
-                z-index: 1000; // Asegura que el menú esté por encima de otros elementos
+                width: 100%;
+                height: 100vh;
+                background-color: $blanco;
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+                overflow-y: auto;
+                overflow-x: hidden;
+                -webkit-overflow-scrolling: touch;
+                z-index: 1000;
+                padding-top: 60px; // Ajusta este valor si tu barra de navegación superior es más alta
             }
 
             .navbar-nav {
@@ -63,9 +69,9 @@
                         padding: 0.75rem 0;
                         font-weight: 500;
 
-                        // Aseguramos padding adecuado en móvil
                         @media (max-width: ($breakpoint-md - 1px)) {
-                            padding: 0.75rem $espaciado-interno-md; // Agrega padding lateral en móvil
+                            padding: 0.75rem $espaciado-interno-md;
+                            text-align: center; // Centra los enlaces en el menú móvil
                         }
 
                         &.active, &:hover {
@@ -91,6 +97,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+
+    @media (max-width: ($breakpoint-sm - 1px)) {
+        padding: 1.5rem 0; // Menos padding en móviles muy pequeños
+    }
 }
 
 .footer {
